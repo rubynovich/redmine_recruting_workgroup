@@ -1,0 +1,7 @@
+# Russian strings go here for Rails i18n
+ru:
+  label_competence_plural: "Компетенции"
+  label_competence_name: "Название компетенции"
+  label_competence_new: "Добавить новую компетенцию"
+  field_team: "Группа"
+  field_team_leader: "Руководитель"

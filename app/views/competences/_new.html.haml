@@ -1,0 +1,4 @@
+= labelled_form_for @object, method: 'post', remote: true do |f|
+  = render partial: 'form', locals: { f: f }
+  = submit_tag l(:button_add)
+  = submit_tag l(:button_cancel), name: nil, type: 'button', onclick: "$('#competence-form').hide();"

@@ -1,0 +1,10 @@
+.contextual
+  = link_to l(:label_competence_new), {action: 'new'}, remote: true, class: 'icon icon-add'
+
+%h2=l(:label_competence_plural)
+- html_title l(:label_competence_plural)
+
+#competence-list
+  = render partial: 'competences'
+
+#competence-new

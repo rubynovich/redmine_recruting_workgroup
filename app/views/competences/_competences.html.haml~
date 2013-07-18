@@ -1,0 +1,23 @@
+- if @collection.any?
+  .autoscroll
+    %table.list
+      %thead
+        %tr
+          %th= l(:label_competence_name)
+          %th= l(:field_team)
+          %th= l(:field_team_leader)
+          %th
+      %tbody
+        - @collection.each do |item|
+          %tr{:class=>cycle("odd", "even")}
+            %td{:align=>"center"}= link_to h(item.name), action: 'edit', id: item.id
+            %td{:align=>"center"}= h item.team
+            %td{:align=>"center"}= link_to_user item.team_leader
+            %td.buttons
+              = link_to l(:button_update), {action: 'edit', id: item.id}, class: 'icon icon-edit', remote: true
+              = link_to l(:button_delete), {action: 'destroy', id: item.id}, method: 'delete', confirm: l(:text_are_you_sure), class: 'icon icon-del', remote: true
+
+  %p.pagination= pagination_links_full @pages, @count
+- else
+  %p.nodata
+    = l(:label_no_data)
