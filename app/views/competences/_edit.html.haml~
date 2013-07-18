@@ -1,4 +1,0 @@
-= labelled_form_for @object, url: {action: 'update'}, method: 'put', remote: true do |f|
-  = render partial: 'form', locals: { f: f }
-  = submit_tag l(:button_update)
-  = submit_tag l(:button_cancel), name: nil, type: 'button', onclick: "$('#competence-form').hide();"

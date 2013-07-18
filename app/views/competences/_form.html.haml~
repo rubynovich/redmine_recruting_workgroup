@@ -1,6 +1,0 @@
-= error_messages_for @object
-
-.box.tabular
-  %p= f.text_field :name, :required => true, size: 40, label: t(:label_competence_name)
-  %p= f.select :team_id, principals_options_for_select(Group.active.order(:lastname, :firstname), @object.team), :prompt => t(:prompt_please_select), required: true
-  %p= f.select :team_leader_id, principals_options_for_select(User.active.order(:lastname, :firstname), @object.team_leader), :prompt => t(:prompt_please_select), required: true
