@@ -1,0 +1,22 @@
+%table{:border=>"0", :cellspacing=>"0", :cellpadding=>"2", :align=>"center", :class=>"bulk_task_import"}
+  %thead
+    %tr{:valign=>"middle", :align=>"center", :class=>"info"}
+      %th= l(:field_subject)
+      %th= l(:field_start_date)
+      %th= l(:field_due_date)
+      %th= l(:label_competence)
+      %th{align: "center"}= "#"
+  %tbody
+    - @ms_project.tasks.each_with_index do |task, index|
+      %tr{valign: "top", align: "center", class: cycle('even', 'odd')}
+        %td{align: "left"}
+          = h(task.outlinenumber)
+          = text_field_tag("workload_competence[tasks][#{ index }][subject]", h(task.title), size: 100, align: "right")
+        %td{align: "left"}
+          = text_field_tag("workload_competence[tasks][#{ index }][start_date]", h(task.start), size: 10)
+        %td{align: "left"}
+          = text_field_tag("workload_competence[tasks][#{ index }][due_date]", h(task.finish), size: 10)
+        %td
+          = select_tag("workload_competence[tasks][#{ index }][competence]", options_from_collection_for_select(Competence.all, :id, :name, task.competence), prompt: t(:prompt_please_select))
+        %td
+          = check_box_tag("workload_competence[tasks][#{ index }][import]", '1', true, class: 'checkbox')

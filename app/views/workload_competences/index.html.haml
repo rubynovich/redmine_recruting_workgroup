@@ -1,0 +1,7 @@
+%h2
+  WorkloadCompetencesController#index
+
+= form_for(:workload_competence, {url: {action: 'new'}, html: {id: 'import', multipart: true, method: 'post'}} ) do |f|
+  = hidden_field_tag( "project_id", params[:project_id])
+  = f.file_field 'xmlfile'
+  = f.submit( l_or_humanize(:analyse, prefix: 'label_'), {name: 'import[analyse]', disable_with: l_or_humanize(:analysing, prefix: 'label_') } )
